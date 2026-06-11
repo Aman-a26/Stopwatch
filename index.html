@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Stopwatch</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <div class="stopwatch-card">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+
+        <div class="header">
+          <p class="eyebrow">Timer</p>
+          <h1>Stopwatch</h1>
+        </div>
+
+        <div class="timer-display">
+          <div class="timer-ring">
+            <div class="timer-text" id="display">00:00:00.00</div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="startBtn" class="btn primary">Start</button>
+          <button id="pauseBtn" class="btn secondary">Pause</button>
+          <button id="resetBtn" class="btn ghost">Reset</button>
+          <button id="lapBtn" class="btn accent">Lap</button>
+        </div>
+
+        <div class="lap-section">
+          <div class="lap-header">
+            <h2>Laps</h2>
+            <span id="lapCount">0 laps</span>
+          </div>
+          <ol id="laps" class="laps-list"></ol>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

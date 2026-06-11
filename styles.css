@@ -1,0 +1,227 @@
+:root {
+  --bg: #060816;
+  --panel: rgba(255, 255, 255, 0.09);
+  --panel-strong: rgba(255, 255, 255, 0.14);
+  --text: #f6f7fb;
+  --muted: #9fb0d0;
+  --primary: #7c5cff;
+  --primary-2: #23d5ab;
+  --accent: #ff5d8f;
+  --shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(124, 92, 255, 0.35), transparent 38%),
+    radial-gradient(circle at bottom right, rgba(35, 213, 171, 0.28), transparent 35%),
+    var(--bg);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.app-shell {
+  width: min(100%, 760px);
+}
+
+.stopwatch-card {
+  position: relative;
+  overflow: hidden;
+  padding: 36px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.glow-one {
+  width: 180px;
+  height: 180px;
+  top: -50px;
+  left: -60px;
+  background: rgba(124, 92, 255, 0.4);
+}
+
+.glow-two {
+  width: 220px;
+  height: 220px;
+  bottom: -90px;
+  right: -70px;
+  background: rgba(35, 213, 171, 0.34);
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #c9d4f5;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.78rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.timer-display {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  margin-bottom: 28px;
+}
+
+.timer-ring {
+  width: min(85vw, 320px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(from 220deg, var(--primary), var(--primary-2), var(--accent), var(--primary));
+  padding: 14px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.timer-text {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(4, 7, 24, 0.94);
+  display: grid;
+  place-items: center;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
+}
+
+.controls {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.btn {
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  min-width: 96px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--primary), #9a7cff);
+  box-shadow: 0 10px 24px rgba(124, 92, 255, 0.3);
+}
+
+.secondary {
+  background: linear-gradient(135deg, #5362ff, #6ac5ff);
+}
+
+.ghost {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.accent {
+  background: linear-gradient(135deg, var(--accent), #ff8ca5);
+}
+
+.lap-section {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 16px 18px;
+}
+
+.lap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.lap-header h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+#lapCount {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.laps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.laps-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #eef3ff;
+}
+
+@media (max-width: 600px) {
+  .stopwatch-card {
+    padding: 24px 18px;
+  }
+
+  .controls {
+    gap: 10px;
+  }
+
+  .btn {
+    min-width: calc(50% - 10px);
+  }
+}
